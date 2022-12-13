@@ -13,8 +13,8 @@ const checkData = `${keys[0]}=${dbData.name}&${keys[1]}=${dbData.email}&${keys[2
 
 http
   .createServer(function (req, res) {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
     if (req.method === 'GET') {
-      res.writeHead(200, { 'Content-Type': 'text/html' });
       res.end(html);
       return;
     }
