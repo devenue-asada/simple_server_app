@@ -8,8 +8,8 @@ const dbData = {
   email: 'taro@example.com',
   password: 'Hogeh0ge',
 };
-const keys = Object.keys(data);
-const checkData = `${keys[0]}=${data.name}&${keys[1]}=${data.email}&${keys[2]}=${data.password}`;
+const keys = Object.keys(dbData);
+const checkData = `${keys[0]}=${dbData.name}&${keys[1]}=${dbData.email}&${keys[2]}=${dbData.password}`;
 
 http
   .createServer(function (req, res) {
@@ -19,6 +19,7 @@ http
       return;
     }
     //POST
+    let chunkData = '';
     req
       .on('data', function (chunk) {
         chunkData += chunk;
