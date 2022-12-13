@@ -1,6 +1,7 @@
 let http = require('http');
 let fs = require('fs');
 let html = fs.readFileSync('./view/index.html');
+let errHtml = fs.readFileSync('./view/error.html');
 let successHtml = fs.readFileSync('./view/login/success.html');
 
 const dbData = {
@@ -31,7 +32,7 @@ http
           res.end(successHtml);
         } else {
           console.log('ログイン失敗');
-          res.end(html);
+          res.end(errHtml);
         }
       });
   })
